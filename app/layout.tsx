@@ -1,8 +1,8 @@
 
-import type { Metadata } from "next";
-import {
-  ClerkProvider
-} from '@clerk/nextjs'
+// import type { Metadata } from "next";
+// import {
+//   ClerkProvider
+// } from '@clerk/nextjs'
 // import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
@@ -33,7 +33,7 @@ export default function RootLayout({
       <body
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ClerkProvider> 
+        {/* <ClerkProvider>  */}
             <ThemeProvider
               attribute="class"
               defaultTheme="system"
@@ -42,7 +42,7 @@ export default function RootLayout({
             >
               {children}
             </ThemeProvider>
-        </ClerkProvider>
+        {/* </ClerkProvider> */}
           
       </body>
     </html>
