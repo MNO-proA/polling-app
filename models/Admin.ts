@@ -1,30 +1,74 @@
-// // models/Admin.ts
-// import mongoose from 'mongoose';
+import mongoose, { Document } from 'mongoose';
 
-// const AdminSchema = new mongoose.Schema({
-//   username: {
-//     type: String,
-//     required: true,
-//     unique: true,
-//   },
-//   password: {
-//     type: String,
-//     required: true,
-//   },
-//   clientName: String,
-//   clientEmail: String,
-//   clientPhone: String,
-//   pollingOccasion: String,
-//   startDate: Date,
-//   endDate: Date,
-//   duration: String,
-//   createdAt: {
-//     type: Date,
-//     default: Date.now,
-//   },
-// });
+export interface IAdmin extends Document {
+  username: string;
+  password: string;
+  clientName: string;
+  clientEmail: string;
+  clientPhone: string;
+  pollingOccasion: string;
+  startDate: Date;
+  endDate: Date;
+  duration: string;
+  createdAt: Date;
+  admins: { username: string; password: string }[]; 
+}
 
-// export  mongoose.models.Admin || mongoose.model('Admin', AdminSchema);
+const AdminSchema = new mongoose.Schema<IAdmin>({
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  clientName: {
+    type: String,
+    required: true,
+  },
+  clientEmail: {
+    type: String,
+    required: true,
+  },
+  clientPhone: {
+    type: String,
+    required: true,
+  },
+  pollingOccasion: {
+    type: String,
+    required: true,
+  },
+  startDate: {
+    type: Date,
+    required: true,
+  },
+  endDate: {
+    type: Date,
+    required: true,
+  },
+  duration: {
+    type: String,
+    required: true,
+  },
+  admins: [{
+    username: {
+      type: String,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+  }],
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+export default mongoose.models.Admin || mongoose.model<IAdmin>('Candidate', AdminSchema);
 
 // // models/Candidate.ts
 // const CandidateSchema = new mongoose.Schema({

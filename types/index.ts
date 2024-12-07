@@ -16,19 +16,13 @@ export interface Admin {
   export interface Candidate {
     _id: string;
     name: string;
-    position: string;
-    votes: number;
     image: string;
-    bio: string;
-    createdAt: Date;
+    biography: string;
   }
   
   export interface Vote {
-    _id: string;
     candidateId: string;
-    voterGender: string;
-    voterAge: number;
-    amount: number;
+    votes: number;
     timestamp: Date;
   }
   
